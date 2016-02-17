@@ -1,0 +1,94 @@
+﻿<WorkflowService mc:Ignorable="sap sap2010 sads" p:TextExpression.Namespaces="{x:Reference __ReferenceID0}" p:TextExpression.References="{x:Reference __ReferenceID1}" ConfigurationName="Log" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="WorkflowService_1" Name="Log"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/servicemodel"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:p="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:w="clr-namespace:WorkflowMSMQExample;assembly=WorkflowMSMQExample"
+ xmlns:wa="clr-namespace:WorkflowMSMQExample.Activities;assembly=WorkflowMSMQExample"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <p:Sequence DisplayName="Sequential Service" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <p:TextExpression.Namespaces>
+      <sco:Collection x:TypeArguments="x:String" x:Name="__ReferenceID0">
+        <x:String>System</x:String>
+        <x:String>System.Collections.Generic</x:String>
+        <x:String>System.Data</x:String>
+        <x:String>System.Linq</x:String>
+        <x:String>System.Text</x:String>
+        <x:String>WorkflowMSMQExample</x:String>
+      </sco:Collection>
+    </p:TextExpression.Namespaces>
+    <p:TextExpression.References>
+      <sco:Collection x:TypeArguments="p:AssemblyReference" x:Name="__ReferenceID1">
+        <p:AssemblyReference>Microsoft.AI.Agent.Intercept</p:AssemblyReference>
+        <p:AssemblyReference>Microsoft.AI.DependencyCollector</p:AssemblyReference>
+        <p:AssemblyReference>Microsoft.AI.PerfCounterCollector</p:AssemblyReference>
+        <p:AssemblyReference>Microsoft.AI.ServerTelemetryChannel</p:AssemblyReference>
+        <p:AssemblyReference>Microsoft.AI.Web</p:AssemblyReference>
+        <p:AssemblyReference>Microsoft.AI.WindowsServer</p:AssemblyReference>
+        <p:AssemblyReference>Microsoft.ApplicationInsights</p:AssemblyReference>
+        <p:AssemblyReference>Microsoft.CSharp</p:AssemblyReference>
+        <p:AssemblyReference>System.Web.DynamicData</p:AssemblyReference>
+        <p:AssemblyReference>System.Drawing</p:AssemblyReference>
+        <p:AssemblyReference>System.Web.Entity</p:AssemblyReference>
+        <p:AssemblyReference>System.Web.ApplicationServices</p:AssemblyReference>
+        <p:AssemblyReference>System</p:AssemblyReference>
+        <p:AssemblyReference>System.Activities</p:AssemblyReference>
+        <p:AssemblyReference>System.Core</p:AssemblyReference>
+        <p:AssemblyReference>System.Data</p:AssemblyReference>
+        <p:AssemblyReference>System.Data.Entity</p:AssemblyReference>
+        <p:AssemblyReference>System.Runtime.Serialization</p:AssemblyReference>
+        <p:AssemblyReference>System.ServiceModel</p:AssemblyReference>
+        <p:AssemblyReference>System.ServiceModel.Activities</p:AssemblyReference>
+        <p:AssemblyReference>System.ServiceModel.Channels</p:AssemblyReference>
+        <p:AssemblyReference>System.Web</p:AssemblyReference>
+        <p:AssemblyReference>System.Xaml</p:AssemblyReference>
+        <p:AssemblyReference>System.Xml</p:AssemblyReference>
+        <p:AssemblyReference>System.Xml.Linq</p:AssemblyReference>
+        <p:AssemblyReference>mscorlib</p:AssemblyReference>
+        <p:AssemblyReference>WorkflowMSMQExample</p:AssemblyReference>
+      </sco:Collection>
+    </p:TextExpression.References>
+    <p:Sequence.Variables>
+      <p:Variable x:TypeArguments="w:LogRequest" Name="logRequest" />
+    </p:Sequence.Variables>
+    <TransactedReceiveScope sap2010:WorkflowViewState.IdRef="TransactedReceiveScope_1">
+      <TransactedReceiveScope.Request>
+        <Receive CanCreateInstance="True" DisplayName="ReceiveRequest" sap2010:WorkflowViewState.IdRef="Receive_1" OperationName="Log" ServiceContractName="WorkflowMSMQExample.Interfaces.IMsmqContract">
+          <ReceiveMessageContent DeclaredMessageType="w:LogRequest">
+            <p:OutArgument x:TypeArguments="w:LogRequest">
+              <mca:CSharpReference x:TypeArguments="w:LogRequest">logRequest</mca:CSharpReference>
+            </p:OutArgument>
+          </ReceiveMessageContent>
+        </Receive>
+      </TransactedReceiveScope.Request>
+      <wa:WriteToFile sap2010:WorkflowViewState.IdRef="WriteToFile_1">
+        <wa:WriteToFile.LogRequest>
+          <p:InArgument x:TypeArguments="w:LogRequest">
+            <mca:CSharpValue x:TypeArguments="w:LogRequest">logRequest</mca:CSharpValue>
+          </p:InArgument>
+        </wa:WriteToFile.LogRequest>
+      </wa:WriteToFile>
+    </TransactedReceiveScope>
+    <sads:DebugSymbol.Symbol>dz1DOlxQcm9qZWN0c1xXb3JrZmxvd01TTVFFeGFtcGxlXFdvcmtmbG93TVNNUUV4YW1wbGVcTG9nLnhhbWx4Bg4DThABATsFTB4BAj0JQxMBBkUHSxgBA0APQGMBB0gNSFkBBA==</sads:DebugSymbol.Symbol>
+  </p:Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Receive_1" sap:VirtualizedContainerService.HintSize="255,88" />
+      <sap2010:ViewStateData Id="WriteToFile_1" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="TransactedReceiveScope_1" sap:VirtualizedContainerService.HintSize="281,347" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="303,471">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WorkflowService_1" sap:VirtualizedContainerService.HintSize="333,541" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</WorkflowService>
